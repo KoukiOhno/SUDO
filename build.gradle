@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'jp.K-Ohno'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+//文字化け対策
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': "Main.StartUpDocker_composeOptimization"
+    }
+}
